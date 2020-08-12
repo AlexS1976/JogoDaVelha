@@ -17,6 +17,15 @@ public class Aula12JogoDaVelha {
     private static int linha, coluna, win;
     private static Scanner leitor = new Scanner(System.in);
     private static String jogador1, jogador2;
+    private static long inicio;
+    //inicia a contagem de tempo
+    public static void setTempo(){
+        inicio=System.currentTimeMillis();
+    }
+    
+    public static long getTempo(){
+        return(System.currentTimeMillis()-inicio)/1000;
+    }
     
     public static void cadastro(){
         System.out.println("Digite o nome do jogador 1:");
@@ -156,6 +165,7 @@ public class Aula12JogoDaVelha {
      */
     public static void main(String[] args) {
         cadastro();
+        setTempo();
         
         int i = 0; 
 	// percorre todo o tabuleiro, nas nove posições: 
@@ -186,7 +196,8 @@ public class Aula12JogoDaVelha {
 	} else { 
 		// se não houve vencedor 
 		System.out.println("Não houve vencedor! O jogo foi empate!!"); 
-	} 
+	}
+        System.out.println("o tempo de jogo foi " + getTempo() + "s");
     }
 }
         
